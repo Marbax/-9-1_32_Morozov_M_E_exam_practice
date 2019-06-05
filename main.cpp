@@ -97,4 +97,13 @@ int main()
             break;
         }
     }
+
+    if (users_count > 0)
+    {
+        delete[] user;
+    }
+    if (books_count > 0)
+    {
+        delete[] book;
+    }
 }
