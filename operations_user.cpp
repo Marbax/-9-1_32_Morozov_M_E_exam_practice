@@ -241,7 +241,7 @@ void Work_with_user(Users *&user, unsigned int &users_count) // Работа с 
     bool flag = true;
     while (flag)
     {
-        system("clear");
+        //system("clear");
         cout << "\t\tWhat would you want to do with user?\n";
         cout << "\n\n";
         cout << "\ta) Add the user;\n";                             // Добавление.пользователя
@@ -283,7 +283,7 @@ void User_info(Books *&book, unsigned int &books_count, Users *&user, unsigned i
     bool flag = true;
     while (flag)
     {
-        system("clear");
+        //system("clear");
         cout << "\t\tWhat would you show about user?\n";
         cout << "\n\n";
         cout << "\ta) Serch the user by...;\n";                                                // Поиск и сортировка по ФИО, количеству прочитанных книг, ID, номеру паспорта.
@@ -390,7 +390,7 @@ void Print_sort_user(Users *&user, unsigned int &users_count) // Поиск и �
             }
             for (int i = 0; i < users_count; i++)
             {
-                if (user[i].books_read = tmp)
+                if (user[i].books_read == tmp)
                 {
                     found = false;
                     Print_user(user[i]);
@@ -406,7 +406,15 @@ void Print_sort_user(Users *&user, unsigned int &users_count) // Поиск и �
         case 99: // c) Поиск по ID (сортировать безсмысленно ,т.к он уникальный )
             system("clear");
             pos = Position_choose_user(users_count);
-            Print_user(user[pos]);
+            for (int i = 0; i < users_count; i++)
+            {
+                if (pos == user[i].id_user)
+                {
+                    Print_user(user[pos]);
+                    cout << "==================================================================" << endl;
+                }
+            }
+
             break;
 
         case 100: // d)  Поиск и сортировка по коду пасспорта
