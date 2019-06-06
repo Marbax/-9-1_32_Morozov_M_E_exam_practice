@@ -438,7 +438,7 @@ void Print_sort_book_by_genre(Books *&book, unsigned int &books_count) //Пои�
     while (flag)
     {
         bool found = true; // проверка нахождения чего либо
-        system("clear");
+        //system("clear");
         cout << "\t\tWhat would you want to do :" << endl;
         cout << "\n\n";
         cout << "a) To enter genre" << endl;
