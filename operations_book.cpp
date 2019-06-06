@@ -35,6 +35,7 @@ void Set_book(Books &book) // Описание книги.
         system("clear");
         cout << "\n\t\tError!Wrong day!\nThe day when the book were published ==> ";
         cin >> tmp;
+        cin.ignore();
     }
     book.publ_date_day = tmp; // Дата издания.День
     cout << "\nThe month when the book were published ==> ";
@@ -45,6 +46,7 @@ void Set_book(Books &book) // Описание книги.
         system("clear");
         cout << "\n\t\tError!Wrong month!\nThe month when the book were published ==> ";
         cin >> tmp;
+        cin.ignore();
     }
     book.publ_date_month = tmp; // Дата издания.Месяц
     cout << "\nThe year when the book were published ==> ";
@@ -55,6 +57,7 @@ void Set_book(Books &book) // Описание книги.
         system("clear");
         cout << "\n\t\tError!Wrong year!\nThe year when the book were published ==> ";
         cin >> tmp;
+        cin.ignore();
     }
     book.publ_date_year = tmp; // Дата издания.Год
     cout << "\nTitle of the book ==> ";
@@ -182,6 +185,7 @@ void Edit_book(Books *&book, unsigned int &books_count) //Редактирова
                 system("clear");
                 cout << "\n\t\tError!Wrong day!\nThe day when the book were published ==> ";
                 cin >> tmp;
+                cin.ignore();
             }
             book[pos].publ_date_day = tmp; // Дата издания.День
             cout << "\nCurrent month when the book were published ==> " << book[pos].publ_date_month;
@@ -193,6 +197,7 @@ void Edit_book(Books *&book, unsigned int &books_count) //Редактирова
                 system("clear");
                 cout << "\n\t\tError!Wrong month!\nThe month when the book were published ==> ";
                 cin >> tmp;
+                cin.ignore();
             }
             book[pos].publ_date_month = tmp; // Дата издания.Месяц
             cout << "\nCurrent year when the book were published ==> " << book[pos].publ_date_year;
@@ -204,6 +209,7 @@ void Edit_book(Books *&book, unsigned int &books_count) //Редактирова
                 system("clear");
                 cout << "\n\t\tError!Wrong year!\nThe year when the book were published ==> ";
                 cin >> tmp;
+                cin.ignore();
             }
             book[pos].publ_date_year = tmp; // Дата издания.Год
         }
@@ -322,7 +328,7 @@ void Print_sort_book(Books *&book, unsigned int &books_count) //Поиск и с
         cout << "b) Search by title;" << endl;
         cout << "c) Search by genre;" << endl;
         cout << "d) Search by popularity;\n\n\t\t\tESC - go back" << endl;
-        cout << "\nInput ==> " ;
+        cout << "\nInput ==> ";
         char key = getchar();
         cin.ignore();
         switch (key)
@@ -434,7 +440,7 @@ void Print_sort_book_by_genre(Books *&book, unsigned int &books_count) //Пои�
         cout << "\n\n";
         cout << "a) To enter genre" << endl;
         cout << "\n\n\t\t\tESC - go back" << endl;
-        cout << "\nInput ==> " ;
+        cout << "\nInput ==> ";
         char key = getchar();
         cin.ignore();
         switch (key)
@@ -483,7 +489,7 @@ void Print_book_by_owner(Books *&book, unsigned int &books_count) /* Вывод 
         cout << "\n\n";
         cout << "a) Show books on hands ==> " << endl;
         cout << "\n\n\t\t\tESC - go back" << endl;
-        cout << "\nInput ==> " ;
+        cout << "\nInput ==> ";
         char key = getchar();
         cin.ignore();
         switch (key)
@@ -561,6 +567,7 @@ void Take_book(Books *&book, unsigned int &books_count, Users *&user, unsigned i
             system("clear");
             cout << "\n\t\tError!Wrong day!\nThe day the book was taken ==> ";
             cin >> tmp;
+            cin.ignore();
         }
         book[pos_book].take_date_day = tmp; // Дата взятия.День
         cout << "\nThe month the book was taken ==> ";
@@ -571,6 +578,7 @@ void Take_book(Books *&book, unsigned int &books_count, Users *&user, unsigned i
             system("clear");
             cout << "\n\t\tError!Wrong month!\nThe month the book was taken ==> ";
             cin >> tmp;
+            cin.ignore();
         }
         book[pos_book].take_date_month = tmp; // Дата взятия.Месяц
         cout << "\nThe year the book was taken ==> ";
@@ -581,6 +589,7 @@ void Take_book(Books *&book, unsigned int &books_count, Users *&user, unsigned i
             system("clear");
             cout << "\n\t\tError!Wrong year!\nThe year the book was taken ==> ";
             cin >> tmp;
+            cin.ignore();
         }
         book[pos_book].take_date_year = tmp; // Дата взятия.Год
 
@@ -594,6 +603,7 @@ void Take_book(Books *&book, unsigned int &books_count, Users *&user, unsigned i
             system("clear");
             cout << "\n\t\tError!Wrong year!\nThe year when the book were published ==> ";
             cin >> tmp;
+            cin.ignore();
         }
         book[pos_book].return_date_year = tmp; // Дата возврата.Год
 
@@ -605,6 +615,7 @@ void Take_book(Books *&book, unsigned int &books_count, Users *&user, unsigned i
             system("clear");
             cout << "\n\t\tError!Wrong month!\nThe month when the book were published ==> ";
             cin >> tmp;
+            cin.ignore();
         }
         book[pos_book].return_date_month = tmp; // Дата возврата.Месяц
 
@@ -616,6 +627,7 @@ void Take_book(Books *&book, unsigned int &books_count, Users *&user, unsigned i
             system("clear");
             cout << "\n\t\tError!Wrong day!\nThe day when the book were published ==> ";
             cin >> tmp;
+            cin.ignore();
         }
         book[pos_book].return_date_day = tmp; // Дата возврата.День
     }
@@ -645,6 +657,7 @@ void Return_book(Books *&book, unsigned int &books_count, Users *&user, unsigned
             system("clear");
             cout << "\n\t\tError!Wrong year!\nThe year the user passed the book to back ==> ";
             cin >> tmp;
+            cin.ignore();
         }
         year = tmp; // Дата возврата.Год
 
@@ -656,6 +669,7 @@ void Return_book(Books *&book, unsigned int &books_count, Users *&user, unsigned
             system("clear");
             cout << "\n\t\tError!Wrong month!\nThe month the user passed the book to back ==> ";
             cin >> tmp;
+            cin.ignore();
         }
         month = tmp; // Дата возврата.Месяц
 
@@ -667,6 +681,7 @@ void Return_book(Books *&book, unsigned int &books_count, Users *&user, unsigned
             system("clear");
             cout << "\n\t\tError!Wrong day!\nThe day the user passed the book to back ==> ";
             cin >> tmp;
+            cin.ignore();
         }
         day = tmp; // Дата возврата.День
 
@@ -734,6 +749,7 @@ void Print_promiser(Books *&book, unsigned int &books_count, Users *&user, unsig
         system("clear");
         cout << "\n\t\tError!Wrong year!\nCurrent year ==> ";
         cin >> tmp;
+        cin.ignore();
     }
     year = tmp;
 
@@ -745,6 +761,7 @@ void Print_promiser(Books *&book, unsigned int &books_count, Users *&user, unsig
         system("clear");
         cout << "\n\t\tError!Wrong month!\nCurrent month ==> ";
         cin >> tmp;
+        cin.ignore();
     }
     month = tmp;
 
@@ -756,6 +773,7 @@ void Print_promiser(Books *&book, unsigned int &books_count, Users *&user, unsig
         system("clear");
         cout << "\n\t\tError!Wrong day!\nCurrent day ==> ";
         cin >> tmp;
+        cin.ignore();
     }
     day = tmp;
 
@@ -795,7 +813,7 @@ void Work_with_book(Books *&book, unsigned int &books_count) // Редактир
         cout << "\ta) Add the book;\n";                             // Добавление.Книги
         cout << "\tb) Remove the book;\n";                          // Удаление.Книги
         cout << "\tc) Edit the book;\n\n\t\t\tESC - return back\n"; // Редактирование полное и частичное.Книги
-        cout << "\nInput ==> " ;
+        cout << "\nInput ==> ";
         key = getchar();
         cin.ignore();
         switch (key)

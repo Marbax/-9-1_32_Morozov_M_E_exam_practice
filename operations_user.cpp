@@ -77,6 +77,7 @@ void Set_user(Users &user) // Описание пользователя.
         system("clear");
         cout << "\n\t\tError!Wrong day!\nThe users's birthday day ==> ";
         cin >> tmp;
+        cin.ignore();
     }
     user.bday_day = tmp; // Дата рождения.День
     cout << "\nThe users's birthday month ==> ";
@@ -87,6 +88,7 @@ void Set_user(Users &user) // Описание пользователя.
         system("clear");
         cout << "\n\t\tError!Wrong month!\nThe users's birthday month ==> ";
         cin >> tmp;
+        cin.ignore();
     }
     user.bday_month = tmp; // Дата рождения.Месяц
     cout << "\nThe users's birthday year  ==> ";
@@ -97,6 +99,7 @@ void Set_user(Users &user) // Описание пользователя.
         system("clear");
         cout << "\n\t\tError!Wrong year!\nThe users's birthday year ==> ";
         cin >> tmp;
+        cin.ignore();
     }
     user.bday_year = tmp; // Дата рождения.Год
 
@@ -172,6 +175,7 @@ void Edit_user(Users *&user, unsigned int &users_count) // Редактиров�
                 system("clear");
                 cout << "\n\t\tError!Wrong day!\nUser's birthday day ==> ";
                 cin >> tmp;
+                cin.ignore();
             }
             user[pos].bday_day = tmp; // Дата рождения.День
 
@@ -184,6 +188,7 @@ void Edit_user(Users *&user, unsigned int &users_count) // Редактиров�
                 system("clear");
                 cout << "\n\t\tError!Wrong month!\nUser's birthday month ==> ";
                 cin >> tmp;
+                cin.ignore();
             }
             user[pos].bday_month = tmp; // Дата рождения.Месяц
 
@@ -196,6 +201,7 @@ void Edit_user(Users *&user, unsigned int &users_count) // Редактиров�
                 system("clear");
                 cout << "\n\t\tError!Wrong year!\nUser's birthday year ==> ";
                 cin >> tmp;
+                cin.ignore();
             }
             user[pos].bday_year = tmp; // Дата рождения.Год
         }
@@ -377,6 +383,7 @@ void Print_sort_user(Users *&user, unsigned int &users_count) // Поиск и �
             {
                 cout << "\n\t\tError!Can't be less than 0!\nEnter the number of read books ==> ";
                 cin >> tmp;
+                cin.ignore();
             }
             for (int i = 0; i < users_count; i++)
             {
