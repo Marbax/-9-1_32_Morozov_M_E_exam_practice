@@ -38,6 +38,7 @@ int main()
 
         cout << "\tg) Save\n";                           // Сохранение
         cout << "\th) Load\n\t\t\tESC - exit program\n"; // Загрузка
+        cout << "\nInput ==> ";
 
         key = getchar();
         cin.ignore();
