@@ -67,7 +67,7 @@ void Set_user(Users &user) // Описание пользователя.
     int tmp = 0;           // промежуточная переменная для битовых полей
     float tmp_float = 0;   // промежуточная переменная для проверки дробных полей
     int user_fn_size = 20; // размер масивов ФИО юзера
-    int passport_size = 8; // размер масива пасспорта
+    int passport_size = 9; // размер масива пасспорта
 
     cout << "\nThe users's birthday day ==> ";
     cin >> tmp;
@@ -117,8 +117,8 @@ void Set_user(Users &user) // Описание пользователя.
     //    cin >> user.id_user;
     //    cin.ignore();
 
-    user.books_read = 0;         // Количество прочитанных книг.
-    strcpy(user.hand_books, ""); // Список книг находящихся на руках у читателя
+    user.books_read = 0;          // Количество прочитанных книг.
+    strcpy(user.hand_books, " "); // Список книг находящихся на руках у читателя
 }
 
 void Remove_user(Users *&user, unsigned int &users_count) // Удаление.
