@@ -110,7 +110,7 @@ void Set_user(Users &user) // Описание пользователя.
     cout << "\nUser's middle name ==> ";
     cin.getline(user.user_middle_name, user_fn_size); // Пользователь.Отчество
 
-    cout << "\nUser's passport code ==> ";
+    cout << "\nUser's passport code(8 symbols) ==> ";
     cin.getline(user.passport_num, passport_size); // Номер паспорта.
 
     //    cout << "\nId of the user ==> "; // добавляется при инициализации
@@ -270,6 +270,7 @@ void Work_with_user(Users *&user, unsigned int &users_count) // Работа с 
             flag = false;
             break;
         default:
+            system("clear");
             cout << "\n\t\tUnknown choice! Try again." << endl;
             break;
         }
@@ -312,6 +313,7 @@ void User_info(Books *&book, unsigned int &books_count, Users *&user, unsigned i
             flag = false;
             break;
         default:
+            system("clear");
             cout << "\n\t\tUnknown choice! Try again." << endl;
             break;
         }
@@ -342,6 +344,7 @@ void Print_sort_user(Users *&user, unsigned int &users_count) // Поиск и �
     while (flag)
     {
         bool found = true; // проверка нахождения чего либо
+        //system("clear");
         cout << "\t\tWhat would you want to do :" << endl;
         cout << "\n\n";
         cout << "\ta) Search and sort by user;" << endl;                                  // Поиск и сортировка по ФИО
@@ -431,6 +434,7 @@ void Print_sort_user(Users *&user, unsigned int &users_count) // Поиск и �
             flag = false;
             break;
         default:
+            system("clear");
             cout << "\n\t\tUnknown choice! Try again." << endl;
             break;
         }
@@ -443,6 +447,7 @@ void Print_most_active_users(Users *&user, unsigned int &users_count) // Выв�
     while (flag)
     {
         bool found = true; // проверка нахождения чего либо
+        //system("clear");
         cout << "\t\tWhat would you want to do :" << endl;
         cout << "\n\n";
         cout << "\ta) Show most active users;\n\n\t\t\tESC - go back" << endl;
@@ -465,6 +470,7 @@ void Print_most_active_users(Users *&user, unsigned int &users_count) // Выв�
             flag = false;
             break;
         default:
+            system("clear");
             cout << "\n\t\tUnknown choice! Try again." << endl;
             break;
         }

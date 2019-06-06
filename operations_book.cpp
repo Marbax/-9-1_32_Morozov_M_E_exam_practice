@@ -322,6 +322,7 @@ void Print_sort_book(Books *&book, unsigned int &books_count) //Поиск и с
     while (flag)
     {
         bool found = true; // проверка нахождения чего либо
+        //system("clear");
         cout << "\t\tWhat would you want to do :" << endl;
         cout << "\n\n";
         cout << "a) Search by author;" << endl;
@@ -422,6 +423,7 @@ void Print_sort_book(Books *&book, unsigned int &books_count) //Поиск и с
             flag = false;
             break;
         default:
+            system("clear");
             cout << "\n\t\tUnknown choice! Try again." << endl;
             break;
         }
@@ -436,6 +438,7 @@ void Print_sort_book_by_genre(Books *&book, unsigned int &books_count) //Пои�
     while (flag)
     {
         bool found = true; // проверка нахождения чего либо
+        system("clear");
         cout << "\t\tWhat would you want to do :" << endl;
         cout << "\n\n";
         cout << "a) To enter genre" << endl;
@@ -469,6 +472,7 @@ void Print_sort_book_by_genre(Books *&book, unsigned int &books_count) //Пои�
             flag = false;
             break;
         default:
+            system("clear");
             cout << "\n\t\tUnknown choice! Try again." << endl;
             break;
         }
@@ -485,6 +489,7 @@ void Print_book_by_owner(Books *&book, unsigned int &books_count) /* Вывод 
     while (flag)
     {
         bool found = true; // проверка нахождения чего либо
+        //system("clear");
         cout << "\t\tWhat would you want to do :" << endl;
         cout << "\n\n";
         cout << "a) Show books on hands ==> " << endl;
@@ -516,6 +521,7 @@ void Print_book_by_owner(Books *&book, unsigned int &books_count) /* Вывод 
             flag = false;
             break;
         default:
+            system("clear");
             cout << "\n\t\tUnknown choice! Try again." << endl;
             break;
         }
@@ -740,7 +746,7 @@ void Print_promiser(Books *&book, unsigned int &books_count, Users *&user, unsig
     int tmp = 0, day, month, year; // временная переменная и переменные даты ,когда пользователь сдал книгу
 
     //================== дата текущая ========================
-
+    system("clear");
     cout << "\nCurrent year ==> ";
     cin >> tmp;
     cin.ignore();
@@ -807,7 +813,7 @@ void Work_with_book(Books *&book, unsigned int &books_count) // Редактир
     bool flag = true;
     while (flag)
     {
-        system("clear");
+        //system("clear");
         cout << "\t\tWhat would you want to do with book?\n";
         cout << "\n\n";
         cout << "\ta) Add the book;\n";                             // Добавление.Книги
@@ -835,6 +841,7 @@ void Work_with_book(Books *&book, unsigned int &books_count) // Редактир
             flag = false;
             break;
         default:
+            system("clear");
             cout << "\n\t\tUnknown choice! Try again." << endl;
             break;
         }
@@ -847,7 +854,7 @@ void Book_info(Books *&book, unsigned int &books_count) /* Информация 
     bool flag = true;
     while (flag)
     {
-        system("clear");
+        //system("clear");
         cout << "\t\tWhat would you show about book?\n";
         cout << "\n\n";
         cout << "\ta) Serch the book by...;\n";                                                  // Поиск и сортировка по автору, названию, жанру, популярности.
@@ -876,6 +883,7 @@ void Book_info(Books *&book, unsigned int &books_count) /* Информация 
             flag = false;
             break;
         default:
+            system("clear");
             cout << "\n\t\tUnknown choice! Try again." << endl;
             break;
         }
@@ -895,7 +903,7 @@ void Save(Books *&book, unsigned int &books_count, Users *&user, unsigned int &u
 
     switch (key)
     {
-    case 97: // a) Сохранить по дэфолту
+    case 97: // a) Сохранить не по дэфолту
         system("clear");
         cout << "Enter file name ==> " << endl;
         cin.getline(buf, path_size);
@@ -922,7 +930,9 @@ void Save(Books *&book, unsigned int &books_count, Users *&user, unsigned int &u
         fwrite(&user[j], sizeof(Users), 1, fout);
     }
     fclose(fout);
-    cout << "SAVED to " << path << endl;
+    system("clear");
+    cout << "\n\n\t\tSAVED to " << path << endl;
+    system("sleep 1");
 }
 
 void Load(Books *&book, unsigned int &books_count, Users *&user, unsigned int &users_count) // загрузка базы
@@ -974,5 +984,7 @@ void Load(Books *&book, unsigned int &books_count, Users *&user, unsigned int &u
     }
 
     fclose(fin);
-    cout << "LOADED from " << path << endl;
+    system("clear");
+    cout << "\n\n\t\tLOADED from " << path << endl;
+    system("sleep 1");
 }
