@@ -280,6 +280,7 @@ void Print_book(Books book) // Вывод конкретной книги
     cout << "Genres : " << book.genres << endl;
     cout << "Cost : " << book.price << " (per day)" << endl;
     cout << "Rating : " << book.rating << "/10" << endl;
+    cout << "Popularity : " << book.popularity << endl;
     //cout << "==================================================================" << endl;
 }
 
@@ -320,8 +321,8 @@ void Print_sort_book(Books *&book, unsigned int &books_count) //Поиск и с
         cout << "a) Search by author;" << endl;
         cout << "b) Search by title;" << endl;
         cout << "c) Search by genre;" << endl;
-        cout << "d) Search by popularity;\n\n\t\t\tESC - выход" << endl;
-
+        cout << "d) Search by popularity;\n\n\t\t\tESC - go back" << endl;
+        cout << "\nInput ==> " << endl;
         char key = getchar();
         cin.ignore();
         switch (key)
@@ -329,7 +330,7 @@ void Print_sort_book(Books *&book, unsigned int &books_count) //Поиск и с
         case 97: // a) Поиск и сортировка по автору.
             system("clear");
             qsort(book, books_count, sizeof(Books), comp_auth_surname); // быстрая сортировка по автору
-            cout << "Enter autor of the movie ==> ";
+            cout << "Enter autor of the book ==> ";
             cin.getline(search, 30);
             for (int i = 0; i < books_count; i++)
             {
@@ -348,7 +349,7 @@ void Print_sort_book(Books *&book, unsigned int &books_count) //Поиск и с
         case 98: // b) Поиск и сортировка по названию
             system("clear");
             qsort(book, books_count, sizeof(Books), comp_title_book); // быстрая сортировка по названию
-            cout << "Enter title of the movie ==> ";
+            cout << "Enter title of the book ==> ";
             cin.getline(search, 30);
             for (int i = 0; i < books_count; i++)
             {
@@ -367,7 +368,7 @@ void Print_sort_book(Books *&book, unsigned int &books_count) //Поиск и с
         case 99: // c) Поиск и сортировка по жанру.
             system("clear");
             qsort(book, books_count, sizeof(Books), comp_genres); // быстрая сортировка по жанру
-            cout << "Enter genre of the movie ==> ";
+            cout << "Enter genre of the book ==> ";
             cin.getline(search, 30);
             for (int i = 0; i < books_count; i++)
             {
@@ -386,13 +387,13 @@ void Print_sort_book(Books *&book, unsigned int &books_count) //Поиск и с
         case 100: // d) Поиск и сортировка по популярности
             system("clear");
             qsort(book, books_count, sizeof(Books), comp_popularity); // быстрая сортировка по популярности
-            cout << "Enter minimum rating of the movie ==> ";
+            cout << "Enter minimum rating of the book ==> ";
             cin >> tmp_rating;
             cin.ignore();
             while (tmp_rating < 0 || tmp_rating > 10)
             {
                 cout << "\n\t\tError! Rating can't be more than 10 or less than 0!" << endl;
-                cout << "Enter minimum rating of the movie ==> ";
+                cout << "Enter minimum rating of the book ==> ";
                 cin >> tmp_rating;
                 cin.ignore();
             }
@@ -422,47 +423,96 @@ void Print_sort_book(Books *&book, unsigned int &books_count) //Поиск и с
 }
 void Print_sort_book_by_genre(Books *&book, unsigned int &books_count) //Поиск по жанру, но сортировка по рейтингу. !!СОРТИРОВКУ НУЖНО ПРОВЕРИТЬ!!
 {
-    char search[30];   // буфер для поиска
-    bool found = true; // проверка нахождения чего либо
-    system("clear");
+    char search[30]; // буфер для поиска
+    //system("clear");
     qsort(book, books_count, sizeof(Books), comp_genres); // быстрая сортировка по жанрам
-    cout << "Enter genre of the movie ==> ";
-    cin.getline(search, 30);
-    for (int i = 0; i < books_count; i++)
+    bool flag = true;
+    while (flag)
     {
-        if (strstr(book[i].genres, search))
+        bool found = true; // проверка нахождения чего либо
+        cout << "\t\tWhat would you want to do :" << endl;
+        cout << "\n\n";
+        cout << "a) To enter genre" << endl;
+        cout << "\n\n\t\t\tESC - go back" << endl;
+        cout << "\nInput ==> " << endl;
+        char key = getchar();
+        cin.ignore();
+        switch (key)
         {
-            found = false;
-            Print_book(book[i]);
-            cout << "==================================================================" << endl;
+        case 97: // a) Ввод для поиска
+            system("clear");
+            cout << "a) Enter genre of the book ==> " << endl;
+            cin.getline(search, 30);
+            for (int i = 0; i < books_count; i++)
+            {
+                if (strstr(book[i].genres, search))
+                {
+                    found = false;
+                    Print_book(book[i]);
+                    cout << "==================================================================" << endl;
+                }
+            }
+            if (found)
+            {
+                cout << "\nNothing found :C" << endl;
+            }
+
+            break;
+        case 27: // назад
+            system("clear");
+            flag = false;
+            break;
+        default:
+            cout << "\n\t\tUnknown choice! Try again." << endl;
+            break;
         }
-    }
-    if (found)
-    {
-        cout << "\nNothing found :C" << endl;
     }
 }
 void Print_book_by_owner(Books *&book, unsigned int &books_count) /* Вывод информации о книгах находящихся на руках у читателей(сортировка по владельцу)
  !!СОРТИРОВКУ ПРОВЕРИТЬ!! (сравнивает поле статуса книги ,если фолс - на руках  ЛИБО сравнивает поле owner если не Library значит на руках) */
 {
-    char search[30];   // буфер для поиска
-    bool found = true; // проверка нахождения чего либо
-    system("clear");
+    bool flag = true;
+    char search[30]; // буфер для поиска
+    //system("clear");
     qsort(book, books_count, sizeof(Books), comp_owner); // быстрая сортировка по владельцу
-    for (int i = 0; i < books_count; i++)
+
+    while (flag)
     {
-        if (!book[i].status) //если статус книги фолс ,значиит на руках  //(!(strcmp(book[i].owner, "Library"))) // если в поле владельца книги не библиотека
+        bool found = true; // проверка нахождения чего либо
+        cout << "\t\tWhat would you want to do :" << endl;
+        cout << "\n\n";
+        cout << "a) Show books on hands ==> " << endl;
+        cout << "\n\n\t\t\tESC - go back" << endl;
+        cout << "\nInput ==> " << endl;
+        char key = getchar();
+        cin.ignore();
+        switch (key)
         {
-            found = false;
-            Print_book(book[i]);
-            cout << "Current owner: " << book[i].owner << "\nLease expiration date : ";
-            cout << book[i].return_date_day << "." << book[i].return_date_month << "." << book[i].return_date_year << endl;
-            cout << "==================================================================" << endl;
+        case 97:
+            for (int i = 0; i < books_count; i++)
+            {
+                if (!book[i].status) //если статус книги фолс ,значиит на руках  //(!(strcmp(book[i].owner, "Library"))) // если в поле владельца книги не библиотека
+                {
+                    found = false;
+                    Print_book(book[i]);
+                    cout << "Current owner: " << book[i].owner << "\nLease expiration date : ";
+                    cout << book[i].return_date_day << "." << book[i].return_date_month << "." << book[i].return_date_year << endl;
+                    cout << "==================================================================" << endl;
+                }
+            }
+            if (found)
+            {
+                cout << "\nAll books in library" << endl;
+            }
+            break;
+        case 27: // назад
+            system("clear");
+            flag = false;
+            break;
+        default:
+            cout << "\n\t\tUnknown choice! Try again." << endl;
+            break;
         }
-    }
-    if (found)
-    {
-        cout << "\nAll books in library" << endl;
     }
 }
 void Take_book(Books *&book, unsigned int &books_count, Users *&user, unsigned int &users_count) /* Выдача книги.(выбирает книгу , выбирает пользователя ,
@@ -745,7 +795,7 @@ void Work_with_book(Books *&book, unsigned int &books_count) // Редактир
         cout << "\ta) Add the book;\n";                             // Добавление.Книги
         cout << "\tb) Remove the book;\n";                          // Удаление.Книги
         cout << "\tc) Edit the book;\n\n\t\t\tESC - return back\n"; // Редактирование полное и частичное.Книги
-
+        cout << "\nInput ==> " << endl;
         key = getchar();
         cin.ignore();
         switch (key)
@@ -785,6 +835,7 @@ void Book_info(Books *&book, unsigned int &books_count) /* Информация 
         cout << "\ta) Serch the book by...;\n";                                                  // Поиск и сортировка по автору, названию, жанру, популярности.
         cout << "\tb) Find the most popular books by the genre;\n";                              // Вывод информации на экран о самых популярных книгах в своем жанре.
         cout << "\tc) Show books that users have in their hands.;\n\n\t\t\tESC - return back\n"; // Вывод информации о книгах находящихся на руках у читателей.
+        cout << "\nInput ==> " << endl;
 
         key = getchar();
         cin.ignore();
@@ -820,6 +871,7 @@ void Save(Books *&book, unsigned int &books_count, Users *&user, unsigned int &u
     char buf[path_size];
 
     cout << "Save to custom file ?(by deffault it's NO)\n a) YES \n b) NO" << endl;
+    cout << "\nInput ==> " << endl;
     char key = getchar();
     cin.ignore();
 
@@ -862,6 +914,7 @@ void Load(Books *&book, unsigned int &books_count, Users *&user, unsigned int &u
     char buf[path_size];
 
     cout << "Load from custom file ?(by deffault it's NO)\n a) YES \n b) NO" << endl;
+    cout << "\nInput ==> " << endl;
     char key = getchar();
     cin.ignore();
 
