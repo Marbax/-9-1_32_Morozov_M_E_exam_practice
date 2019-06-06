@@ -322,7 +322,7 @@ void Print_sort_book(Books *&book, unsigned int &books_count) //Поиск и с
         cout << "b) Search by title;" << endl;
         cout << "c) Search by genre;" << endl;
         cout << "d) Search by popularity;\n\n\t\t\tESC - go back" << endl;
-        cout << "\nInput ==> " << endl;
+        cout << "\nInput ==> " ;
         char key = getchar();
         cin.ignore();
         switch (key)
@@ -434,7 +434,7 @@ void Print_sort_book_by_genre(Books *&book, unsigned int &books_count) //Пои�
         cout << "\n\n";
         cout << "a) To enter genre" << endl;
         cout << "\n\n\t\t\tESC - go back" << endl;
-        cout << "\nInput ==> " << endl;
+        cout << "\nInput ==> " ;
         char key = getchar();
         cin.ignore();
         switch (key)
@@ -483,7 +483,7 @@ void Print_book_by_owner(Books *&book, unsigned int &books_count) /* Вывод 
         cout << "\n\n";
         cout << "a) Show books on hands ==> " << endl;
         cout << "\n\n\t\t\tESC - go back" << endl;
-        cout << "\nInput ==> " << endl;
+        cout << "\nInput ==> " ;
         char key = getchar();
         cin.ignore();
         switch (key)
@@ -795,7 +795,7 @@ void Work_with_book(Books *&book, unsigned int &books_count) // Редактир
         cout << "\ta) Add the book;\n";                             // Добавление.Книги
         cout << "\tb) Remove the book;\n";                          // Удаление.Книги
         cout << "\tc) Edit the book;\n\n\t\t\tESC - return back\n"; // Редактирование полное и частичное.Книги
-        cout << "\nInput ==> " << endl;
+        cout << "\nInput ==> " ;
         key = getchar();
         cin.ignore();
         switch (key)
@@ -835,7 +835,7 @@ void Book_info(Books *&book, unsigned int &books_count) /* Информация 
         cout << "\ta) Serch the book by...;\n";                                                  // Поиск и сортировка по автору, названию, жанру, популярности.
         cout << "\tb) Find the most popular books by the genre;\n";                              // Вывод информации на экран о самых популярных книгах в своем жанре.
         cout << "\tc) Show books that users have in their hands.;\n\n\t\t\tESC - return back\n"; // Вывод информации о книгах находящихся на руках у читателей.
-        cout << "\nInput ==> " << endl;
+        cout << "\nInput ==> ";
 
         key = getchar();
         cin.ignore();
@@ -871,7 +871,7 @@ void Save(Books *&book, unsigned int &books_count, Users *&user, unsigned int &u
     char buf[path_size];
 
     cout << "Save to custom file ?(by deffault it's NO)\n a) YES \n b) NO" << endl;
-    cout << "\nInput ==> " << endl;
+    cout << "\nInput ==> ";
     char key = getchar();
     cin.ignore();
 
@@ -914,7 +914,7 @@ void Load(Books *&book, unsigned int &books_count, Users *&user, unsigned int &u
     char buf[path_size];
 
     cout << "Load from custom file ?(by deffault it's NO)\n a) YES \n b) NO" << endl;
-    cout << "\nInput ==> " << endl;
+    cout << "\nInput ==> ";
     char key = getchar();
     cin.ignore();
 

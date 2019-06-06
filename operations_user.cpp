@@ -241,6 +241,7 @@ void Work_with_user(Users *&user, unsigned int &users_count) // Работа с 
         cout << "\ta) Add the user;\n";                             // Добавление.пользователя
         cout << "\tb) Remove the user;\n";                          // Удаление.пользователя
         cout << "\tc) Edit the user;\n\n\t\t\tESC - return back\n"; // Редактирование полное и частичное.пользователя
+        cout << "\nInput ==> " ;
 
         key = getchar();
         cin.ignore();
@@ -283,6 +284,7 @@ void User_info(Books *&book, unsigned int &books_count, Users *&user, unsigned i
         cout << "\tc) Show information about the readers with the expired book return date.;"; // Вывод информации о читателях с просроченной датой возврата книги,
                                                                                                // обязательно выводить при этом количество просроченных дней и начисленной пени.
         cout << "\n\n\t\t\tESC - return back\n";
+        cout << "\nInput ==> " ;
         key = getchar();
         cin.ignore();
         switch (key)
@@ -340,6 +342,7 @@ void Print_sort_user(Users *&user, unsigned int &users_count) // Поиск и �
         cout << "\tb) Search by number of read books;" << endl;                         // Поиск по количеству прочитанных книг ,сортировка по ФИО
         cout << "\tc) Search by id;" << endl;                                           // Поиск по ID (сортировать безсмысленно ,т.к он уникальный )
         cout << "\td) Search  and sort by passport code;\n\n\t\t\tESC - выход" << endl; // Поиск и сортировка по коду пасспорта
+        cout << "\nInput ==> ";
 
         char key = getchar();
         cin.ignore();
